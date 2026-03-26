@@ -11,35 +11,28 @@ import es.riberadeltajo.appjetpackcompose.screens.LoginScreen
 import es.riberadeltajo.appjetpackcompose.screens.MiniJuegoScreen
 import es.riberadeltajo.appjetpackcompose.screens.RegistroScreen
 
-//componente que orquestará la navegación entre pantallas
-
 @Composable
 fun NavGraph(navController: NavHostController, userViewModel: UserViewModel) {
     NavHost(navController = navController, startDestination = AppScreens.InicioScreen.route) {
-        //InicioScreen
+        
         composable(route = AppScreens.InicioScreen.route) {
             InicioScreen(navController)
         }
 
-        //RegistroScreen
         composable(route = AppScreens.RegistroScreen.route) {
-            RegistroScreen(navController)
+            RegistroScreen(navController, userViewModel)
         }
 
-        //LoginScreen
         composable(route = AppScreens.LoginScreen.route) {
-            LoginScreen(navController)
+            LoginScreen(navController, userViewModel)
         }
 
-        //HistoriaScreen
         composable(route = AppScreens.HistoriaScreen.route) {
             HistoriaScreen(navController)
         }
 
-        //MiniJuegoScreen
         composable(route = AppScreens.MiniJuegoScreen.route) {
             MiniJuegoScreen(navController)
         }
-
     }
 }
